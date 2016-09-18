@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="Madoko, version 1.0.3">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Linux 常用手册</title>
+  <style type="text/css" class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote { 
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013"; 
+      position: absolute;
+      margin-left: -1em; 
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {  
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;  
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
+    margin-top: 1.22em; 
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
+    margin-top: 1ex;    
+  }
+  .madoko h5, .madoko h6 { 
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 { 
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 { 
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;    
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0">
+
+<div class="titleblock align-center para-block" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" style="text-align:center;line-adjust:0">
+<div class="title para-block" style="font-size:xx-large;font-weight:bold;margin-bottom:0.5ex;line-adjust:0">Linux 常用手册</div></div></div><span data-line=""></span>
+<nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[1]{.heading-label}. \u8BF4\u660E" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">1</span>. 说明</a></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[2]{.heading-label}. \u76EE\u5F55\u540D" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">2</span>. 目录名</a></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[3]{.heading-label}. \u7F29\u5199" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3</span>. 缩写</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target="sec--" data-toc-depth="2" data-toc-line="[3.1]{.heading-label}. \u547D\u4EE4\u683C\u5F0F:" style="toctarget:sec--"><a href="#sec--" class="localref"><span class="heading-label">3.1</span>. 命令格式:</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.2]{.heading-label}. \u6587\u4EF6\u7BA1\u7406" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.2</span>. 文件管理</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.3]{.heading-label}. \u786C\u4EF6\u7BA1\u7406" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.3</span>. 硬件管理</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.4]{.heading-label}. \u8F6F\u4EF6\u53CA\u8F6F\u4EF6\u5305\u7BA1\u7406" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.4</span>. 软件及软件包管理</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.5]{.heading-label}. \u7CFB\u7EDF\u7BA1\u7406(\u5185\u6838)" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.5</span>. 系统管理(内核)</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.6]{.heading-label}. \u7F16\u8F91\u5668" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.6</span>. 编辑器</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.7]{.heading-label}. \u7F16\u7801" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.7</span>. 编码</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[3.8]{.heading-label}. \u56FE\u5F62\u754C\u9762" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3.8</span>. 图形界面</a></div></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[4]{.heading-label}. \u5E38\u7528\u547D\u4EE4" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">4</span>. 常用命令</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[4.1]{.heading-label}. \u57FA\u672C\u547D\u4EE4" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">4.1</span>. 基本命令</a></div>
+<div class="tocitem tocitem2" data-toc-target="section" data-toc-depth="2" data-toc-line="[4.2]{.heading-label}. \u5B9E\u7528\u7684\u547D\u4EE4" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">4.2</span>. 实用的命令</a></div></div></div></nav><h2 id="section" class="h1" data-heading-depth="1" style="display:block"><span class="heading-before"><span class="heading-label">1</span>. </span>说明</h2>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">Linux 严格区分大小写.
+</li>
+<li class="li ul-li list-star-li compact-li">一切内容皆文件.
+</li>
+<li class="li ul-li list-star-li compact-li">系统并不依赖扩展名区分文件类型, 而是权限. 但为方便管理员查看, 坚持按规范写成mo默认形式.
+</li>
+<li class="li ul-li list-star-li compact-li">字符界面相对于图形界面占用的系统资源更少, 因此减少出错及攻击的可能性.
+</li>
+<li class="li ul-li list-star-li compact-li">普通用户提示符: $; 超级用户提示符: #.
+</li></ul>
+<h2 id="section" class="h1" data-heading-depth="1" style="display:block"><span class="heading-before"><span class="heading-label">2</span>. </span>目录名</h2>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">/home: HOME 普通用户的家目录
+</li>
+<li class="li ul-li list-star-li compact-li">/ : ROOT 根目录 
+</li>
+<li class="li ul-li list-star-li compact-li">/boot: BOOT 启动目录
+</li>
+<li class="li ul-li list-star-li compact-li">/bin: BINaries 命令保存目录 （普通用户可读取的命令）
+</li>
+<li class="li ul-li list-star-li compact-li">/sbin: Super BINarise 命令保存目录 （超级用户可读取的命令）
+</li>
+<li class="li ul-li list-star-li compact-li">/dev: DEVices 设备文件保存目录
+</li>
+<li class="li ul-li list-star-li compact-li">/lib: LIBraries 系统库保存目录
+</li>
+<li class="li ul-li list-star-li compact-li">/mnt: MouNT 系统挂载目录
+</li>
+<li class="li ul-li list-star-li compact-li">/tmp: TeMPorary 临时目录
+</li>
+<li class="li ul-li list-star-li compact-li">/proc: PROCesses 直接写入内存目录
+</li>
+<li class="li ul-li list-star-li compact-li">/sys: SYSTEM 系统目录
+</li>
+<li class="li ul-li list-star-li compact-li">/usr: 系统软件资源目录
+</li>
+<li class="li ul-li list-star-li compact-li">/etc: ETCetera
+</li>
+<li class="li ul-li list-star-li compact-li">/run: RUN
+</li>
+<li class="li ul-li list-star-li compact-li">/srv: SeRVices
+</li>
+<li class="li ul-li list-star-li compact-li">/opt: OPTion
+</li>
+<li class="li ul-li list-star-li compact-li">/var: VARiable 系统相关文档内容
+
+<div class="note" style="display:block">
+<p class="p noindent"><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span>根目录及 usr 目录下都有 bin/sbin; proc/sys 不可直接操作, 用于保存内存的过载点.</p></div></li></ul>
+<h2 id="section" class="h1" data-heading-depth="1" style="display:block"><span class="heading-before"><span class="heading-label">3</span>. </span>缩写</h2><h3 id="sec--" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.1</span>. </span>命令格式:</h3>
+<p class="p noindent"><strong class="strong-star2"><code class="code code1">命令 [选项] [参数]</code></strong>
+</p>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">当多个选项时, 可以写在一起.
+</li>
+<li class="li ul-li list-star-li compact-li">简化及完整选项: -a / -all
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.2</span>. </span>文件管理</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">ls (LiSt)
+</li>
+<li class="li ul-li list-star-li compact-li">cd (Change Directory)
+</li>
+<li class="li ul-li list-star-li compact-li">pwd (Print Working Directory)
+</li>
+<li class="li ul-li list-star-li compact-li">mv (MoVe)
+</li>
+<li class="li ul-li list-star-li compact-li">rm (ReMove)
+</li>
+<li class="li ul-li list-star-li compact-li">pushd (PUSH to Directory)
+</li>
+<li class="li ul-li list-star-li compact-li">popd (POP from Directory )
+</li>
+<li class="li ul-li list-star-li compact-li">mkdir (MaKe DIRecotry)
+</li>
+<li class="li ul-li list-star-li compact-li">rmdir (ReMove DIRectory)
+</li>
+<li class="li ul-li list-star-li compact-li">cat (CATenate)
+</li>
+<li class="li ul-li list-star-li compact-li">sed (Stream EDitor)
+</li>
+<li class="li ul-li list-star-li compact-li">diff (DIFFerece)
+</li>
+<li class="li ul-li list-star-li compact-li">wc (Word Count)
+</li>
+<li class="li ul-li list-star-li compact-li">chmod (CHange MODe)
+</li>
+<li class="li ul-li list-star-li compact-li">chown (CHange MODe)
+</li>
+<li class="li ul-li list-star-li compact-li">chgrp (CHange GRouP)
+</li>
+<li class="li ul-li list-star-li compact-li">awk (Aho Weinberger and Kernighan)
+</li>
+<li class="li ul-li list-star-li compact-li">gawk (Gnu Aho Weinberger and Kernighan)
+</li>
+<li class="li ul-li list-star-li compact-li">grep (General Regular Expression Print)
+</li>
+<li class="li ul-li list-star-li compact-li">ln (LiNk)
+</li>
+<li class="li ul-li list-star-li compact-li">tar (TARball)
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.3</span>. </span>硬件管理</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">df (Disk Free)
+</li>
+<li class="li ul-li list-star-li compact-li">du (Disk Usage)
+</li>
+<li class="li ul-li list-star-li compact-li">dd (Data Description)
+</li>
+<li class="li ul-li list-star-li compact-li">parted (PARTition EDitor)
+</li>
+<li class="li ul-li list-star-li compact-li">lspci (LiSt Peripheral Component Interconnect)
+</li>
+<li class="li ul-li list-star-li compact-li">lscpu (LiSt Universal Serial Bus)
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.4</span>. </span>软件及软件包管理</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">man (MANual)
+</li>
+<li class="li ul-li list-star-li compact-li">apt (Advanced Packaging Tool)
+</li>
+<li class="li ul-li list-star-li compact-li">dpkg (Debian PacKaGe)
+</li>
+<li class="li ul-li list-star-li compact-li">yum (Yellow dog Updater, Modified)
+</li>
+<li class="li ul-li list-star-li compact-li">rpm (RPM Packaged Manager)
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.5</span>. </span>系统管理(内核)</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">depmod (DEPend MODule)
+</li>
+<li class="li ul-li list-star-li compact-li">modprobe (MODule PROBE)
+</li>
+<li class="li ul-li list-star-li compact-li">lsmod (LiSt MODule)
+</li>
+<li class="li ul-li list-star-li compact-li">modinfo (MODule INFOrmation)
+</li>
+<li class="li ul-li list-star-li compact-li">insmod (INSert MODule)
+</li>
+<li class="li ul-li list-star-li compact-li">rmmod (ReMove MODule)
+</li>
+<li class="li ul-li list-star-li compact-li">ps (Processes Status)
+</li>
+<li class="li ul-li list-star-li compact-li">su (Substitute User)
+</li>
+<li class="li ul-li list-star-li compact-li">bash (Bourne Again SHell)
+</li>
+<li class="li ul-li list-star-li compact-li">init (INITialization)
+</li>
+<li class="li ul-li list-star-li compact-li">ssh (Secure SHell)
+</li>
+<li class="li ul-li list-star-li compact-li">wine (Wine Is Not an Emulator)
+</li>
+<li class="li ul-li list-star-li compact-li">exec (EXECute)
+</li>
+<li class="li ul-li list-star-li compact-li">fstab (FileSystem TABle)
+</li>
+<li class="li ul-li list-star-li compact-li">passwd (PASSWorD)
+</li>
+<li class="li ul-li list-star-li compact-li">tty (TeleTYpe)
+</li>
+<li class="li ul-li list-star-li compact-li">sudo (SuperUser DO)
+</li>
+<li class="li ul-li list-star-li compact-li">grub (GRand Unified Bootloader)
+</li>
+<li class="li ul-li list-star-li compact-li">tzselect (Time Zone SELECT)
+</li>
+<li class="li ul-li list-star-li compact-li">sync (SYNChronize)
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.6</span>. </span>编辑器</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">ed (Editor)
+</li>
+<li class="li ul-li list-star-li compact-li">nano (Nano's ANOther editor)
+</li>
+<li class="li ul-li list-star-li compact-li">emacs (Editor MACroS)
+</li>
+<li class="li ul-li list-star-li compact-li">vi (VIsual)
+</li>
+<li class="li ul-li list-star-li compact-li">vim (Vi IMproved)
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.7</span>. </span>编码</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">cc (C Compiler)
+</li>
+<li class="li ul-li list-star-li compact-li">gcc (Gnu Compiler Collection)
+</li>
+<li class="li ul-li list-star-li compact-li">gcc (Gnu C Compiler)
+</li>
+<li class="li ul-li list-star-li compact-li">g++ (Gnu c++ compiler)
+</li>
+<li class="li ul-li list-star-li compact-li">gcj (Gnu Complier for Java)
+</li>
+<li class="li ul-li list-star-li compact-li">yacc (Yet Another Complier Complier)
+</li>
+<li class="li ul-li list-star-li compact-li">guile (Gnu Ubiquitous Intelligent Lanugage for Extensions)
+</li>
+<li class="li ul-li list-star-li compact-li">php (PHP)
+</li>
+<li class="li ul-li list-star-li compact-li">ld (Link eDitor)
+</li>
+<li class="li ul-li list-star-li compact-li">gdb (Gnu DeBug)
+</li>
+<li class="li ul-li list-star-li compact-li">tcl (Tool Command Line)
+</li></ul>
+<h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">3.8</span>. </span>图形界面</h3>
+<ul class="ul list-star compact">
+<li class="li ul-li list-star-li compact-li">gnome (GNu Object Model Environment)
+</li>
+<li class="li ul-li list-star-li compact-li">gdm (Gnome Display Manager)
+</li>
+<li class="li ul-li list-star-li compact-li">gtk (Graphic user interface ToolKit)
+</li></ul>
+<h2 id="section" class="h1" data-heading-depth="1" style="display:block"><span class="heading-before"><span class="heading-label">4</span>. </span>常用命令</h2><h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">4.1</span>. </span>基本命令</h3><table class="madoko block">
+<thead><tr><th class="thead tr-even col cell-border-left cell-line col-odd col-first" data-row="0" data-col="1"></th><th class="thead tr-even col cell-line col-even" data-row="0" data-col="2" style="text-align:center"></th><th class="thead tr-even col cell-border-left cell-border-right cell-line col-odd col-last" data-row="0" data-col="3"></th></tr>
+<tr><th class="col cell-border-left thead tr-odd tr-last tr-first col-odd col-first" data-row="1" data-col="1" style="font-weight:bold"> Command </th><th class="col thead tr-odd tr-last tr-first col-even" data-row="1" data-col="2" style="font-weight:bold;text-align:center"> Example                                    </th><th class="col cell-border-left cell-border-right thead tr-odd tr-last tr-first col-odd col-last" data-row="1" data-col="3" style="font-weight:bold"> Description                                                                                     </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-border-left cell-line col-odd col-first" data-row="0" data-col="1"></td><td class="tbody tr-even col cell-line col-even" data-row="0" data-col="2" style="text-align:center"></td><td class="tbody tr-even col cell-border-left cell-border-right cell-line col-odd col-last" data-row="0" data-col="3"></td></tr>
+<tr><td class="tbody tr-odd tr-first col cell-border-left col-odd col-first" data-row="1" data-col="1"> ls      </td><td class="tbody tr-odd tr-first col col-even" data-row="1" data-col="2" style="text-align:center"> ls<br>ls -alF                              </td><td class="tbody tr-odd tr-first col cell-border-left cell-border-right col-odd col-last" data-row="1" data-col="3"> List files in current directory<br>List in long format                                          </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="2" data-col="1"> cd      </td><td class="tbody tr-even col col-even" data-row="2" data-col="2" style="text-align:center"> cd tempdir<br>cd ..<br>cd ~dhyatt/web-docs </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="2" data-col="3"> Change directory to tempdir<br>Move back one directory<br>Move into dhyatt's web-docs directory </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="3" data-col="1"> mkdir   </td><td class="tbody tr-odd col col-even" data-row="3" data-col="2" style="text-align:center"> mkdir graphics                             </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="3" data-col="3"> Make a directory called graphics                                                                </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="4" data-col="1"> rmdir   </td><td class="tbody tr-even col col-even" data-row="4" data-col="2" style="text-align:center"> rmdir emptydir                             </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="4" data-col="3"> Remove directory (must be empty)                                                                </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="5" data-col="1"> rm      </td><td class="tbody tr-odd col col-even" data-row="5" data-col="2" style="text-align:center"> rm file1.bak<br>rm *.tmp                   </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="5" data-col="3"> Remove or delete file<br>Remove all file                                                        </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="6" data-col="1"> mv      </td><td class="tbody tr-even col col-even" data-row="6" data-col="2" style="text-align:center"> mv old.html new.html                       </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="6" data-col="3"> Move or rename files                                                                            </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="7" data-col="1"> more    </td><td class="tbody tr-odd col col-even" data-row="7" data-col="2" style="text-align:center"> more index.html                            </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="7" data-col="3"> Look at file, one page at a time                                                                </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="8" data-col="1"> lpr     </td><td class="tbody tr-even col col-even" data-row="8" data-col="2" style="text-align:center"> lpr index.html                             </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="8" data-col="3"> Send file to printer                                                                            </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="9" data-col="1"> man     </td><td class="tbody tr-odd col col-even" data-row="9" data-col="2" style="text-align:center"> man ls                                     </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="9" data-col="3"> Online manual (help) about command                                                               </td></tr>
+<tr><td class="tbody tr-even tr-last col cell-border-left col-odd col-first" data-row="10" data-col="1"> cp      </td><td class="tbody tr-even tr-last col col-even" data-row="10" data-col="2" style="text-align:center"> cp file1 web-docs<br>cp file1 file1.bak    </td><td class="tbody tr-even tr-last col cell-border-left cell-border-right col-odd col-last" data-row="10" data-col="3"> Copy file into directory<br>Make backup of file1                                                </td></tr>
+<tr><td class="tbody tr-even col cell-border-left cell-line col-odd col-first" data-row="10" data-col="1"></td><td class="tbody tr-even col cell-line col-even" data-row="10" data-col="2" style="text-align:center"></td><td class="tbody tr-even col cell-border-left cell-border-right cell-line col-odd col-last" data-row="10" data-col="3"></td></tr></tbody></table><h3 id="section" class="h2" data-heading-depth="2" style="display:block"><span class="heading-before"><span class="heading-label">4.2</span>. </span>实用的命令</h3><table class="madoko block">
+<thead><tr><th class="thead tr-even col cell-border-left cell-line col-odd col-first" data-row="0" data-col="1"></th><th class="thead tr-even col cell-line col-even" data-row="0" data-col="2" style="text-align:center"></th><th class="thead tr-even col cell-border-left cell-border-right cell-line col-odd col-last" data-row="0" data-col="3"></th></tr>
+<tr><th class="col cell-border-left thead tr-odd tr-last tr-first col-odd col-first" data-row="1" data-col="1" style="font-weight:bold"> Command           </th><th class="col thead tr-odd tr-last tr-first col-even" data-row="1" data-col="2" style="font-weight:bold;text-align:center"> Example           </th><th class="col cell-border-left cell-border-right thead tr-odd tr-last tr-first col-odd col-last" data-row="1" data-col="3" style="font-weight:bold"> Description                             </th></tr></thead>
+<tbody><tr><td class="tbody tr-even col cell-border-left cell-line col-odd col-first" data-row="0" data-col="1"></td><td class="tbody tr-even col cell-line col-even" data-row="0" data-col="2" style="text-align:center"></td><td class="tbody tr-even col cell-border-left cell-border-right cell-line col-odd col-last" data-row="0" data-col="3"></td></tr>
+<tr><td class="tbody tr-odd tr-first col cell-border-left col-odd col-first" data-row="1" data-col="1"> grep <str><files> </files></str></td><td class="tbody tr-odd tr-first col col-even" data-row="1" data-col="2" style="text-align:center"> grep “bad word” * </td><td class="tbody tr-odd tr-first col cell-border-left cell-border-right col-odd col-last" data-row="1" data-col="3"> Find which files contain a certain word </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="2" data-col="1"> chmod <opt> <file>            </file></opt></td><td class="tbody tr-even col col-even" data-row="2" data-col="2" style="text-align:center"> chmod 644 *.html<br>chmod 755 file.exe           </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="2" data-col="3"> Change file permissions read only<br>Change file permissions to executable                                  </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="3" data-col="1">        passwd           </td><td class="tbody tr-odd col col-even" data-row="3" data-col="2" style="text-align:center">    passwd                </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="3" data-col="3">         Change passwd                                 </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="4" data-col="1">      ps <opt>              </opt></td><td class="tbody tr-even col col-even" data-row="4" data-col="2" style="text-align:center">      ps aux<br>ps aux   |   grep dhyatt              </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="4" data-col="3">    List all running processes by #ID<br>List process #ID's running by dhyatt                                 </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="5" data-col="1">     kill <opt> <id>              </id></opt></td><td class="tbody tr-odd col col-even" data-row="5" data-col="2" style="text-align:center">    kill -9 8453                </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="5" data-col="3">    Kill process with ID #8453                                      </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="6" data-col="1">       gcc (g++) <source>             </td><td class="tbody tr-even col col-even" data-row="6" data-col="2" style="text-align:center">    gcc file.c -o file<br>g++ fil2.cpp -o fil2               </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="6" data-col="3">             Compile a program written in C<br>Compile a program written in C++                             </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="7" data-col="1">     gzip <file>                </file></td><td class="tbody tr-odd col col-even" data-row="7" data-col="2" style="text-align:center">     gzip bigfile<br>gunzip bigfile.gz               </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="7" data-col="3">  Compress file<br>Uncompress file                                        </td></tr>
+<tr><td class="tbody tr-even col cell-border-left col-odd col-first" data-row="8" data-col="1">   mail (pine)                </td><td class="tbody tr-even col col-even" data-row="8" data-col="2" style="text-align:center">  mail me@tjhsst.edu &lt; file1 pine                 </td><td class="tbody tr-even col cell-border-left cell-border-right col-odd col-last" data-row="8" data-col="3">                  Send file1 by email to someone and read mail using pine                       </td></tr>
+<tr><td class="tbody tr-odd col cell-border-left col-odd col-first" data-row="9" data-col="1">     telnet <host><br>ssh <host>               </host></host></td><td class="tbody tr-odd col col-even" data-row="9" data-col="2" style="text-align:center">   telnet vortex.tjhsst.edu<br>ssh -l dhyatt<br>jazz.tjhsst.edu                </td><td class="tbody tr-odd col cell-border-left cell-border-right col-odd col-last" data-row="9" data-col="3">          Open a connection to vortex<br>Open a secure connection to jazz as user dhyatt                                </td></tr>
+<tr><td class="tbody tr-even tr-last col cell-border-left col-odd col-first" data-row="10" data-col="1">   ftp <host><br>ncftp <host directory="">                </host></host></td><td class="tbody tr-even tr-last col col-even" data-row="10" data-col="2" style="text-align:center">  ftp station1.tjhsst.edu<br>ncftp metalab.unc.edu                  </td><td class="tbody tr-even tr-last col cell-border-left cell-border-right col-odd col-last" data-row="10" data-col="3">      Upload or Download files to station1<br>Connect to archives at UNC                                    </td></tr>
+<tr><td class="tbody tr-even col cell-border-left cell-line col-odd col-first" data-row="10" data-col="1"></td><td class="tbody tr-even col cell-line col-even" data-row="10" data-col="2" style="text-align:center"></td><td class="tbody tr-even col cell-border-left cell-border-right cell-line col-odd col-last" data-row="10" data-col="3"></td></tr></tbody></table><span data-line=""></span></div>
+
+
+
+</body></html>
